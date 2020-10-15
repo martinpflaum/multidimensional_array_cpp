@@ -12,60 +12,9 @@
 #include <string>
 #include <memory>
 #include <limits>
+#include "basic.hpp"
 
 
-
-
-std::string str(int input){
-    return std::to_string(input);
-}
-
-std::string str(double input){
-    return std::to_string(input);
-}
-
-std::string str(float input){
-    return std::to_string(input);
-}
-
-std::string str(unsigned int input){
-    return std::to_string(input);
-}
-
-
-std::string str(size_t input){
-    return std::to_string(input);
-}
-
-std::string str(long int& input){
-    return std::to_string(input);
-}
-
-
-std::string str(void* input){
-    return std::to_string((unsigned long)input);
-}
-std::string str(bool input){
-    if(input){ return "true";}
-    else{ return "false";}
-}
-
-template<class T>
-std::string str(T input){
-    return std::string(input);
-}
-
-void print(){
-    std::cout << "\n";
-}
-
-
-//,typename = typename std::enable_if<!std::is_same<arg,Object>::value >::type
-template<class arg,class... Args>
-void print(const arg& first,Args const &... args){
-    std::cout << str(first) << " ";
-    print(args...);
-}
 
 #ifdef USE_HEAD_TAIL
 class Slicing_Single{
@@ -1105,3 +1054,4 @@ Array<value_type> cat(std::initializer_list<Array<value_type>> input,int dim = 0
     //TODO dim != 0
 
 }
+
