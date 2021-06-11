@@ -992,6 +992,7 @@ void cat_assign_data(value_type* pointer,int depth,size_t subscript_mul_depth,Ar
 
 template<class value_type>
 Array<value_type> cat(std::initializer_list<Array<value_type>> input,int dim = 0){//int dim = INT_MIN){ //int dim = -1
+    //this function isn t working yet
     if(std::numeric_limits<int>::max() == dim){
         //create mew dim;    
     }
