@@ -130,12 +130,14 @@ public:
     ArrayInit(std::initializer_list<ArrayInit<value_type>> init): data((void*)init.begin()), len(init.size()),is_final(false){}
 
     ShapeElem* shape(){
+        ShapeElem* out;
         if(is_final){
-            ShapeElem* out = new ShapeElem(len,nullptr);
+            out = new ShapeElem(len,nullptr);
         }else{
             ArrayInit<value_type>* first = (ArrayInit<value_type>*)data;
-            ShapeElem* out = new ShapeElem(len,first->shape());
+            out = new ShapeElem(len,first->shape());
         }
+        return out;
     }
     /*
     void assign(Object** pointer){
@@ -769,6 +771,7 @@ public:
 
     Array<value_type>& operator =(const Array<value_type>& other){
         this->arrayRef = other.arrayRef;
+        return *this;
     }
 
     Array(){
